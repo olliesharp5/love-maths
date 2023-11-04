@@ -14,6 +14,13 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+    // checking the key  property. And we're saying that if the key that was pressed was enter then run this function.
+    document.getElementById("answer-box").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    })
+
     // loads the addition game when the site is loaded 
     runGame("addition");
 });
@@ -23,6 +30,10 @@ document.addEventListener("DOMContentLoaded", function() {
  * and after the user's answer has been processed
  */
 function runGame(gameType) {
+
+    document.getElementById("answer-box").value = ""; // So each time our run game function is called it will set the value of our answer box to an empty string
+    document.getElementById("answer-box").focus();   //what this does is each  time the run game function is called the answer box will again gain the focus.So the cursor will be ready there for us to type in our answer.
+
     let num1 = Math.floor(Math.random() * 25) +1; // generates random whole integer from 1 to 25 excluding zero
     let num2= Math.floor(Math.random() * 25) + 1;
 
